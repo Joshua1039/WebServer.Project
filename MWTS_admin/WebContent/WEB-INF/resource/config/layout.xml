@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+    "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <!-- header 와 footer가 들어간 기본 layout 
+	<definition name="admin_layout" template="/WEB-INF/jsp/layout/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/jsp/layout/header.jsp" />
+		<put-attribute name="left" value="/WEB-INF/jsp/layout/left.jsp" />
+	</definition>
+	-->
+	<!-- 빈 레이아웃 -->
+	<definition name="blank_layout" template="/WEB-INF/jsp/layout/blank_layout.jsp">
+	</definition>
+	
+	<definition name="/*/*/blank" extends="blank_layout">		<!-- 빈 레이어 -->
+	    <put-attribute name="content" value="/WEB-INF/jsp/{1}/{2}.jsp" />
+	</definition>
+	
+	<definition name="/*/*/*/blank" extends="blank_layout">		<!-- 빈 레이어 -->
+	    <put-attribute name="content" value="/WEB-INF/jsp/{1}/{2}/{3}.jsp" />
+	</definition>
+	
+	
+	<!-- 	
+	<definition name="/*/*" extends="admin_layout">
+		<put-attribute name="content" value="/WEB-INF/jsp/{1}/{2}.jsp" />
+	</definition>
+	 -->
+</tiles-definitions>

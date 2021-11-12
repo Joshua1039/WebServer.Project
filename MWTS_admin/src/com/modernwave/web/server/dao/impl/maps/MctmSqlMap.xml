@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap  PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"  "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Mctm">
+
+    <parameterMap class="Map" id="selectCodeRegParam" >
+        <parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectCodeReg" parameterMap="selectCodeRegParam" resultClass="OutputResult">
+         { call CODE_REG_SELECT(?,?,?) }
+     </procedure>
+     
+    <parameterMap class="Map" id="codeRegInsertParam" >
+        <parameter property="CATEGORY" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="CODE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="NAME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="codeRegInsert" parameterMap="codeRegInsertParam" >
+         { call CODE_REG_INSERT(?,?,?,?,?) }
+     </procedure>   
+     
+    <parameterMap class="Map" id="codeRegUpdateParam" >
+        <parameter property="CATEGORY" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="CODE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="NAME" javaType="String" jdbcType="VARCHAR" mode="IN"/>      
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="codeRegUpdate" parameterMap="codeRegUpdateParam" >
+         { call CODE_REG_UPDATE(?,?,?,?,?) }
+     </procedure>   
+     
+    <parameterMap class="Map" id="codeRegDeleteParam" >
+        <parameter property="CATEGORY" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="CODE" javaType="String" jdbcType="VARCHAR" mode="IN"/> 
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="codeRegDelete" parameterMap="codeRegDeleteParam" >
+         { call CODE_REG_DELETE(?,?,?,?) }
+     </procedure>     
+     	
+    <parameterMap class="Map" id="selectRealTimeVAgentParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectRealTimeVAgent" parameterMap="selectRealTimeVAgentParam" resultClass="OutputResult">
+         { call AGENT_SELECT_REALTIME(?,?,?) }
+     </procedure>
+     
+    <parameterMap class="Map" id="selectVGroupParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectVGroup" parameterMap="selectVGroupParam" resultClass="OutputResult">
+         { call GROUP_SELECT(?,?,?) }
+     </procedure>     
+     
+    <parameterMap class="Map" id="selectVagentParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="GROUPNAME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectVagent" parameterMap="selectVagentParam" resultClass="OutputResult">
+         { call AGENT_SELECT(?,?,?,?) }
+     </procedure>       
+     
+    <parameterMap class="Map" id="selectCodeMasterParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="LD" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectCodeMaster" parameterMap="selectCodeMasterParam" resultClass="OutputResult">
+         { call CODE_MASTER_SELECT(?,?,?,?) }
+     </procedure>          
+     
+<!--     <parameterMap class="Map" id="selectPredialogParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="GUBUN" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="PART" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="AGENTNAME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="CALLBACKNUM" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="SVCTEXT" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="STARTDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="ENDDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectPredialog" parameterMap="selectPredialogParam" resultClass="OutputResult">
+         { call PREDIALOG_SELECT(?,?,?,?,?,?,?,?,?,?) }
+     </procedure>  -->    
+    <parameterMap class="Map" id="selectPredialogParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="STARTDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="ENDDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectPredialog" parameterMap="selectPredialogParam" resultClass="OutputResult">
+         { call PREDIALOG_SELECT(?,?,?,?,?) }
+     </procedure> 
+          
+    <parameterMap class="Map" id="deletePredialogParam" >
+        <parameter property="IDX" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="deletePredialog" parameterMap="deletePredialogParam" >
+         { call PREDIALOG_DELETE(?,?,?) }
+     </procedure> 
+     
+    <parameterMap class="Map" id="updatePredialogParam" >
+        <parameter property="IDXNO" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="USERNAME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RESULT" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="MEMO" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="updatePredialog" parameterMap="updatePredialogParam" >
+         { call PREDIALOG_UPDATE(?,?,?,?,?,?,?) }
+     </procedure> 
+     
+    <parameterMap class="Map" id="updatePredialogAgentRegParam" >
+        <parameter property="AGENTID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="updatePredialogAgentReg" parameterMap="updatePredialogAgentRegParam" >
+         { call PREDIALOG_AGENT_REG_UPDATE(?,?,?) }
+     </procedure>           
+			     
+    <parameterMap class="Map" id="distributePredialogParam" >
+        <parameter property="INDEXNO" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="AGENTID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="AGENTNAME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="distributePredialog" parameterMap="distributePredialogParam" >
+         { call PREDIALOG_DISTRIBUTE(?,?,?,?,?) }
+     </procedure>     
+
+    <parameterMap class="Map" id="selectUserTelParam" >
+        <parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectUserTel" parameterMap="selectUserTelParam" resultClass="OutputResult">
+         { call USER_TEL_SELECT(?,?,?) }
+     </procedure>
+     
+    <parameterMap class="Map" id="updateUserTelParam" >
+        <parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="TELNUM" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="updateUserTel" parameterMap="updateUserTelParam" >
+         { call USER_TEL_UPDATE(?,?,?,?) }
+     </procedure>    
+     
+    <parameterMap class="Map" id="selectgroupRegDeptParam" >
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectgroupRegDept" parameterMap="selectgroupRegDeptParam" resultClass="OutputResult">
+         { call GROUP_REG_DEPT_SELECT(?,?) }
+     </procedure>          
+
+    <parameterMap class="Map" id="groupRegDeptInsertParam" >
+        <parameter property="DEPTCODE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="DEPTNAME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="groupRegDeptInsert" parameterMap="groupRegDeptInsertParam" >
+         { call GROUP_REG_DEPT_INSERT(?,?,?,?) }
+     </procedure>       
+     
+    <parameterMap class="Map" id="groupRegDeptUpdateParam" >
+        <parameter property="DEPTCODE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="DEPTNAME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="groupRegDeptUpdate" parameterMap="groupRegDeptUpdateParam" >
+         { call GROUP_REG_DEPT_UPDATE(?,?,?,?) }
+     </procedure>  
+     
+    <parameterMap class="Map" id="groupRegDeptDeleteParam" >
+        <parameter property="DEPTCODE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="groupRegDeptDelete" parameterMap="groupRegDeptDeleteParam" >
+         { call GROUP_REG_DEPT_DELETE(?,?,?) }
+     </procedure>       
+          
+    <parameterMap class="Map" id="selectgroupRegTeamParam" >
+        <parameter property="DEPT" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectgroupRegTeam" parameterMap="selectgroupRegTeamParam" resultClass="OutputResult">
+         { call GROUP_REG_TEAM_SELECT(?,?,?) }
+     </procedure>     
+			    
+    <parameterMap class="Map" id="groupRegTeamInsertParam" >
+        <parameter property="TEAMCODE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="TEAMNAME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="WORKTIME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="TEAMDEPTCODE" javaType="String" jdbcType="VARCHAR" mode="IN"/>        
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="groupRegTeamInsert" parameterMap="groupRegTeamInsertParam" >
+         { call GROUP_REG_TEAM_INSERT(?,?,?,?,?,?) }
+     </procedure>       
+     
+    <parameterMap class="Map" id="groupRegTeamUpdateParam" >
+        <parameter property="TEAMCODE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="TEAMNAME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="WORKTIME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="TEAMDEPTCODE" javaType="String" jdbcType="VARCHAR" mode="IN"/>    
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="groupRegTeamUpdate" parameterMap="groupRegTeamUpdateParam" >
+         { call GROUP_REG_TEAM_UPDATE(?,?,?,?,?,?) }
+     </procedure>  
+     
+    <parameterMap class="Map" id="groupRegTeamDeleteParam" >
+        <parameter property="TEAMCODE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="TEAMDEPTCODE" javaType="String" jdbcType="VARCHAR" mode="IN"/> 
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="groupRegTeamDelete" parameterMap="groupRegTeamDeleteParam" >
+         { call GROUP_REG_TEAM_DELETE(?,?,?,?) }
+     </procedure>      
+     
+    <parameterMap class="Map" id="selectGroupRegCodeParam" >
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectGroupRegCode" parameterMap="selectGroupRegCodeParam" resultClass="OutputResult">
+         { call GROUP_REG_CODE_SELECT(?,?) }
+     </procedure>  
+     
+    <parameterMap class="Map" id="selectAgentRegParam" >
+        <parameter property="CODE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectAgentReg" parameterMap="selectAgentRegParam" resultClass="OutputResult">
+         { call AGENT_REG_SELECT(?,?,?) }
+     </procedure>   
+     
+    <parameterMap class="Map" id="agentRegInsertParam" >
+        <parameter property="AGENTID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="AGENTNAME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="AGENTTEL" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="AGENTPW" javaType="String" jdbcType="VARCHAR" mode="IN"/>        
+        <parameter property="AGENTPICKUP" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="AGENTGROUP" javaType="String" jdbcType="VARCHAR" mode="IN"/>           
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="agentRegInsert" parameterMap="agentRegInsertParam" >
+         { call AGENT_REG_INSERT(?,?,?,?,?,?,?,?) }
+     </procedure>       
+     
+    <parameterMap class="Map" id="agentRegUpdateParam" >
+        <parameter property="AGENTID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="AGENTNAME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="AGENTTEL" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="AGENTPW" javaType="String" jdbcType="VARCHAR" mode="IN"/>        
+        <parameter property="AGENTPICKUP" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="AGENTGROUP" javaType="String" jdbcType="VARCHAR" mode="IN"/>     
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="agentRegUpdate" parameterMap="agentRegUpdateParam" >
+         { call AGENT_REG_UPDATE(?,?,?,?,?,?,?,?) }
+     </procedure>  
+     
+    <parameterMap class="Map" id="agentRegDeleteParam" >
+        <parameter property="AGENTID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="agentRegDelete" parameterMap="agentRegDeleteParam" >
+         { call AGENT_REG_DELETE(?,?,?) }
+     </procedure>     
+          
+    <parameterMap class="Map" id="selectCallStatisticParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="STARTDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="ENDDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectCallStatistic" parameterMap="selectCallStatisticParam" resultClass="OutputResult">
+         { call CALL_STATISTIC_SELECT(?,?,?,?,?) }
+     </procedure>   
+     
+    <parameterMap class="Map" id="selectArsSttsParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="STARTDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="ENDDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectArsStts" parameterMap="selectArsSttsParam" resultClass="OutputResult">
+         { call ARS_STTS_SELECT(?,?,?,?,?) }
+     </procedure>   
+     
+    <parameterMap class="Map" id="selectGroupSttsParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="STARTDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="ENDDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectGroupStts" parameterMap="selectGroupSttsParam" resultClass="OutputResult">
+         { call GROUP_STTS_SELECT(?,?,?,?,?) }
+     </procedure>        
+     
+    <parameterMap class="Map" id="selectQueueSttsParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="STARTDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="ENDDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectQueueStts" parameterMap="selectQueueSttsParam" resultClass="OutputResult">
+         { call QUEUE_STTS_SELECT(?,?,?,?,?) }
+     </procedure>           
+     
+    <parameterMap class="Map" id="selectServiceLevelSttsParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="STARTDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="ENDDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectServiceLevelStts" parameterMap="selectServiceLevelSttsParam" resultClass="OutputResult">
+         { call SERVICELEVEL_STTS_SELECT(?,?,?,?,?) }
+     </procedure>           
+     
+    <parameterMap class="Map" id="selectCallbackSttsParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="STARTDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="ENDDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectCallbackStts" parameterMap="selectCallbackSttsParam" resultClass="OutputResult">
+         { call CALLBACK_STTS_SELECT(?,?,?,?,?) }
+     </procedure>             
+     
+    <parameterMap class="Map" id="selectArsMonitoringParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectArsMonitoring" parameterMap="selectArsMonitoringParam" resultClass="OutputResult">
+         { call ARS_MONITORING_SELECT(?,?,?) }
+     </procedure> 
+
+    <parameterMap class="Map" id="selectServiceMonitoringParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectServiceMonitoring" parameterMap="selectServiceMonitoringParam" resultClass="OutputResult">
+         { call SERVICELEVEL_MONITORING_SELECT(?,?,?) }
+     </procedure> 
+     
+    <parameterMap class="Map" id="selectMctmArsParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectMctmArs" parameterMap="selectMctmArsParam" resultClass="OutputResult">
+         { call MCTM_ARS_SELECT(?,?,?) }
+     </procedure> 
+     
+    <parameterMap class="Map" id="selectMctmAgentParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectMctmAgent" parameterMap="selectMctmAgentParam" resultClass="OutputResult">
+         { call MCTM_AGENT_SELECT(?,?,?) }
+     </procedure> 
+         
+    <parameterMap class="Map" id="selectAgentCallSttsParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="STARTDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="ENDDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectAgentCallStts" parameterMap="selectAgentCallSttsParam" resultClass="OutputResult">
+         { call AGENT_CALL_STTS_SELECT(?,?,?,?,?) }
+     </procedure>   
+     
+    <parameterMap class="Map" id="selectCallRecodeSttsParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="STARTDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="ENDDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectCallRecodeStts" parameterMap="selectCallRecodeSttsParam" resultClass="OutputResult">
+         { call CALL_RECODE_STTS_SELECT(?,?,?,?,?) }
+     </procedure>  
+                    
+     
+</sqlMap>

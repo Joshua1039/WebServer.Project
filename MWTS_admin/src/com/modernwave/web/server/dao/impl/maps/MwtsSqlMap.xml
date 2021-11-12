@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap  PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"  "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Mwts">
+
+    <parameterMap class="Map" id="loginProcParam" >
+        <parameter property="USER_ID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="USER_PW" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="USER_NAME" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="GRADE" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="USER_THEME" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="LISTEN_YN" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="SAVE_YN" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+	<procedure id="loginProc"  parameterMap="loginProcParam">
+		{call SP_LOGIN(?,?,?,?,?,?,?,?,?)}
+	</procedure>
+     
+    <parameterMap class="Map" id="modifyPwProcParam" >
+        <parameter property="USER_ID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="CURRENT_PW" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="MODIFY_PW" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="MODIFY_PW_CHK" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="modifyPwProc" parameterMap="modifyPwProcParam" >
+         { call SP_MODIFY_PW(?,?,?,?,?,?) }
+     </procedure>
+        
+    <parameterMap class="Map" id="menuSelectParam" >
+        <parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="menuSelect" parameterMap="menuSelectParam" resultClass="OutputResult">
+         { call MENU_SELECT_LIST(?,?,?) }
+     </procedure>
+     
+    <parameterMap class="Map" id="userSelectParam" >
+        <parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="userSelect" parameterMap="userSelectParam" resultClass="OutputResult">
+         { call USER_SELECT_LIST(?,?,?) }
+     </procedure>
+	
+    <parameterMap class="Map" id="selectMenuAuthParam" >
+        <parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectMenuAuth" parameterMap="selectMenuAuthParam" resultClass="OutputResult">
+         { call MENU_AUTH_SELECT(?,?,?) }
+     </procedure>  
+         
+    <parameterMap class="Map" id="updateMenuAuthParam" >
+        <parameter property="USER_ID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="IDX" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="updateMenuAuth" parameterMap="updateMenuAuthParam" >
+         { call MENU_AUTH_UPDATE(?,?,?,?) }
+     </procedure>     
+
+    <parameterMap class="Map" id="selectThemeParam" >
+        <parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectTheme" parameterMap="selectThemeParam" resultClass="OutputResult" >
+         { call SELECT_THEME(?,?,?) }
+     </procedure>   
+     
+    <parameterMap class="Map" id="updateThemeParam" >
+        <parameter property="USER_ID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="USER_THEME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="updateTheme" parameterMap="updateThemeParam" >
+         { call UPDATE_THEME(?,?,?,?) }
+     </procedure>       
+
+
+<!-- 코드마스터 -->
+    <parameterMap class="Map" id="codeMasterInsertParam" >
+        <parameter property="CATEGORY" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="CODE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="NAME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="codeMasterInsert" parameterMap="codeMasterInsertParam" >
+         { call CODE_MST_INSERT(?,?,?,?,?) }
+     </procedure>   
+     
+    <parameterMap class="Map" id="codeMasterUpdateParam" >
+        <parameter property="CATEGORY" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="CODE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="NAME" javaType="String" jdbcType="VARCHAR" mode="IN"/>      
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="codeMasterUpdate" parameterMap="codeMasterUpdateParam" >
+         { call CODE_MST_UPDATE(?,?,?,?,?) }
+     </procedure>   
+     
+    <parameterMap class="Map" id="codeMasterDeleteParam" >
+        <parameter property="CATEGORY" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="CODE" javaType="String" jdbcType="VARCHAR" mode="IN"/> 
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="codeMasterDelete" parameterMap="codeMasterDeleteParam" >
+         { call CODE_MST_DELETE(?,?,?,?) }
+     </procedure>    
+     
+    <parameterMap class="Map" id="selectCodeMasterParam" >
+        <parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectCodeMaster" parameterMap="selectCodeMasterParam" resultClass="OutputResult">
+         { call CODE_MST_SELECT(?,?,?) }
+     </procedure>
+     
+<!-- 관리자관리 -->
+    <parameterMap class="Map" id="userInfoInsertParam" >
+        <parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="USERNAME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="LISTENYN" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="SAVEYN" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="USEYN" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="userInfoInsert" parameterMap="userInfoInsertParam" >
+         { call USER_INFO_INSERT(?,?,?,?,?,?,?) }
+     </procedure>   
+     
+    <parameterMap class="Map" id="userInfoUpdateParam" >
+        <parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="USERNAME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="LISTENYN" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="SAVEYN" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="USEYN" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="userInfoUpdate" parameterMap="userInfoUpdateParam" >
+         { call USER_INFO_UPDATE(?,?,?,?,?,?,?) }
+     </procedure>        
+     
+    <parameterMap class="Map" id="userInfoDeleteParam" >
+        <parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="userInfoDelete" parameterMap="userInfoDeleteParam" >
+         { call USER_INFO_DELETE(?,?,?) }
+     </procedure>      
+     
+    <parameterMap class="Map" id="userInfoResetPWParam" >
+        <parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="userInfoResetPW" parameterMap="userInfoResetPWParam" >
+         { call USER_INFO_RESET_PW(?,?,?) }
+     </procedure>       
+               
+    <parameterMap class="Map" id="loginHistoryParam" >
+        <parameter property="USER_ID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="USER_IP" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+	<procedure id="loginHistory"  parameterMap="loginHistoryParam">
+		{call SP_LOGIN_HISTORY(?,?,?,?)}
+	</procedure>
+		                   
+</sqlMap>

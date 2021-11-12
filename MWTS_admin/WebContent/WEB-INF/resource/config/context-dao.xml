@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       					   http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+       					   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+
+	<!-- base dataSource -->
+ 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/MWTS" />  
+		<property name="resourceRef" value="true" /> 
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager"  proxy-target-class="true"/>
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+    <bean id="transactionTemplate" 
+      class="org.springframework.transaction.support.TransactionTemplate">
+      <property name="transactionManager" ref="transactionManager"/>
+    </bean>
+    	
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="insert*"     propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="update*"     propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="delete*"     propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="*"  />    
+		</tx:attributes>
+	</tx:advice>
+
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocations" value="/WEB-INF/resource/config/sql-map-config.xml"/>
+		<property name="mappingLocations" value="classpath*:/com/modernwave/web/server/dao/impl/maps/*SqlMap.xml" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+
+
+    
+    <!-- MWTS dataSource -->
+	<bean id="dataSource_MWTS" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/MWTS" />  
+		<property name="resourceRef" value="true" /> 
+	</bean>
+	<!-- transaction driven -->
+	<tx:annotation-driven transaction-manager="transactionManager_MWTS"  proxy-target-class="true"/>
+	
+	<bean id="transactionManager_MWTS" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource_MWTS"/>
+	</bean>
+
+    <bean id="transactionTemplate_MWTS" 
+      class="org.springframework.transaction.support.TransactionTemplate">
+      <property name="transactionManager" ref="transactionManager_MWTS"/>
+    </bean>
+    	
+	<tx:advice id="txAdvice_MWTS" transaction-manager="transactionManager_MWTS">
+		<tx:attributes>
+			<tx:method name="insert*"     propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="update*"     propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="delete*"     propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="*"  />    
+		</tx:attributes>
+	</tx:advice>
+
+	<bean id="sqlMapClient_MWTS" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocations" value="/WEB-INF/resource/config/sql-map-config.xml"/>
+		<property name="mappingLocations" value="classpath*:/com/modernwave/web/server/dao/impl/maps/*SqlMap.xml" />
+		<property name="dataSource" ref="dataSource_MWTS" />
+	</bean>
+	
+	
+
+
+    <!-- MCTM dataSource -->
+	<bean id="dataSource_MCTM" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/MCTM" />  
+		<property name="resourceRef" value="true" /> 
+	</bean>
+	<!-- transaction driven -->
+	<tx:annotation-driven transaction-manager="transactionManager_MCTM"  proxy-target-class="true"/>
+	
+	<bean id="transactionManager_MCTM" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource_MCTM"/>
+	</bean>
+
+    <bean id="transactionTemplate_MCTM" 
+      class="org.springframework.transaction.support.TransactionTemplate">
+      <property name="transactionManager" ref="transactionManager_MCTM"/>
+    </bean>
+    	
+	<tx:advice id="txAdvice_MCTM" transaction-manager="transactionManager_MCTM">
+		<tx:attributes>
+			<tx:method name="insert*"     propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="update*"     propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="delete*"     propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="*"  />    
+		</tx:attributes>
+	</tx:advice>
+	
+	<bean id="sqlMapClient_MCTM" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocations" value="/WEB-INF/resource/config/sql-map-config.xml"/>
+		<property name="mappingLocations" value="classpath*:/com/modernwave/web/server/dao/impl/maps/*SqlMap.xml" />
+		<property name="dataSource" ref="dataSource_MCTM" />
+	</bean>	
+	
+
+
+
+    <!-- ACR dataSource -->
+	<bean id="dataSource_ACR" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/ACR" />  
+		<property name="resourceRef" value="true" /> 
+	</bean>
+	<!-- transaction driven -->
+	<tx:annotation-driven transaction-manager="transactionManager_ACR"  proxy-target-class="true"/>
+	
+	<bean id="transactionManager_ACR" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource_ACR"/>
+	</bean>
+
+    <bean id="transactionTemplate_ACR" 
+      class="org.springframework.transaction.support.TransactionTemplate">
+      <property name="transactionManager" ref="transactionManager_ACR"/>
+    </bean>
+    	
+	<tx:advice id="txAdvice_ACR" transaction-manager="transactionManager_ACR">
+		<tx:attributes>
+			<tx:method name="insert*"     propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="update*"     propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="delete*"     propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="*"  />    
+		</tx:attributes>
+	</tx:advice>
+	
+	<bean id="sqlMapClient_ACR" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocations" value="/WEB-INF/resource/config/sql-map-config.xml"/>
+		<property name="mappingLocations" value="classpath*:/com/modernwave/web/server/dao/impl/maps/*SqlMap.xml" />
+		<property name="dataSource" ref="dataSource_ACR" />
+	</bean>	
+	
+
+
+
+    <!-- DARS dataSource -->
+	<bean id="dataSource_DARS" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/DARS" />  
+		<property name="resourceRef" value="true" /> 
+	</bean>
+	<!-- transaction driven -->
+	<tx:annotation-driven transaction-manager="transactionManager_DARS"  proxy-target-class="true"/>
+	
+	<bean id="transactionManager_DARS" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource_DARS"/>
+	</bean>
+
+    <bean id="transactionTemplate_DARS" 
+      class="org.springframework.transaction.support.TransactionTemplate">
+      <property name="transactionManager" ref="transactionManager_DARS"/>
+    </bean>
+    	
+	<tx:advice id="txAdvice_DARS" transaction-manager="transactionManager_DARS">
+		<tx:attributes>
+			<tx:method name="insert*"     propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="update*"     propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="delete*"     propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="*"  />    
+		</tx:attributes>
+	</tx:advice>
+	
+	<bean id="sqlMapClient_DARS" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocations" value="/WEB-INF/resource/config/sql-map-config.xml"/>
+		<property name="mappingLocations" value="classpath*:/com/modernwave/web/server/dao/impl/maps/*SqlMap.xml" />
+		<property name="dataSource" ref="dataSource_DARS" />
+	</bean>		
+	
+	
+	
+			
+	<aop:config>
+		<!-- <aop:pointcut id="serviceOperation" expression="execution(* *..*Service.*(..))" /> -->
+		<aop:pointcut id="serviceOperation" expression="execution(public * com.spring.web..service.*Service.*(..))" />
+		<aop:advisor id="transactionAdvisor" pointcut-ref="serviceOperation" advice-ref="txAdvice" />
+		<aop:advisor id="transactionAdvisor_MWTS" pointcut-ref="serviceOperation" advice-ref="txAdvice_MWTS" />
+		<aop:advisor id="transactionAdvisor_MCTM" pointcut-ref="serviceOperation" advice-ref="txAdvice_MCTM" />
+		<aop:advisor id="transactionAdvisor_ACR" pointcut-ref="serviceOperation" advice-ref="txAdvice_ACR" />
+		<aop:advisor id="transactionAdvisor_DARS" pointcut-ref="serviceOperation" advice-ref="txAdvice_DARS" />
+	</aop:config>
+	
+		
+			
+</beans>

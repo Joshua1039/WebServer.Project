@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap  PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"  "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Dars">
+
+    <parameterMap class="Map" id="mentSelectParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="mentSelect" parameterMap="mentSelectParam" resultClass="OutputResult">
+         { call MENT_SELECT(?,?,?) }
+     </procedure>
+     
+    <parameterMap class="Map" id="mentInsertParam" >
+        <parameter property="TITLE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="MENT" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="mentInsert" parameterMap="mentInsertParam" >
+         { call MENT_INSERT(?,?,?,?) }
+     </procedure>  
+     
+    <parameterMap class="Map" id="mentUpdateParam" >
+        <parameter property="INDEX" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="TITLE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="MENT" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="mentUpdate" parameterMap="mentUpdateParam" >
+         { call MENT_UPDATE(?,?,?,?,?) }
+     </procedure>      
+     
+    <parameterMap class="Map" id="mentDeleteParam" >
+        <parameter property="INDEX" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="mentDelete" parameterMap="mentDeleteParam" >
+         { call MENT_DELETE(?,?,?) }
+     </procedure>       
+          
+    <parameterMap class="Map" id="codeMstSiteListParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="codeMstSiteList" parameterMap="codeMstSiteListParam" resultClass="OutputResult">
+         { call CODEMST_SITE_LIST(?,?,?) }
+     </procedure>
+     
+    <parameterMap class="Map" id="codeMstHolidayListParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="codeMstHolidayList" parameterMap="codeMstHolidayListParam" resultClass="OutputResult">
+         { call CODEMST_HOLIDAY_LIST(?,?,?) }
+     </procedure>     
+     
+     <parameterMap class="Map" id="holidaySelectParam" >
+     	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="holidaySelect" parameterMap="holidaySelectParam" resultClass="OutputResult">
+         { call HOLIDAY_SELECT(?,?,?) }
+     </procedure>
+
+    <parameterMap class="Map" id="holidayInsertParam" >
+        <parameter property="MONTH" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="DAY" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="DATA" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="DESCRIPTION" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="SITE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="holidayInsert" parameterMap="holidayInsertParam" >
+         { call HOLIDAY_INSERT(?,?,?,?,?,?,?) }
+     </procedure>
+     
+    <parameterMap class="Map" id="holidayDeleteParam" >
+        <parameter property="MONTH" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="DAY" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="SITE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="holidayDelete" parameterMap="holidayDeleteParam" >
+         { call HOLIDAY_DELETE(?,?,?,?,?) }
+     </procedure>                 
+          	
+    <parameterMap class="Map" id="jobTimesSelectParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="SITE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="jobTimesSelect" parameterMap="jobTimesSelectParam" resultClass="OutputResult">
+         { call JOBTIMES_SELECT(?,?,?,?) }
+     </procedure>
+
+    <parameterMap class="Map" id="updateJobTimesParam" >
+        <parameter property="SITE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="WEEKDAY" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="F1FROMTIME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="T1TOTIME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="F2FROMTIME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="T2TOTIME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="F3FROMTIME" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="T3TOTIME" javaType="String" jdbcType="VARCHAR" mode="IN"/>        
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="updateJobTimes" parameterMap="updateJobTimesParam" >
+         { call JOBTIMES_UPDATE(?,?,?,?,?,?,?,?,?,?) }
+     </procedure>
+     
+    <parameterMap class="Map" id="copyJobTimesParam" >
+        <parameter property="ORIGINSITE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="COPYSITE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="copyJobTimes" parameterMap="copyJobTimesParam" >
+         { call JOBTIMES_COPY(?,?,?,?) }
+     </procedure>   
+
+     <parameterMap class="Map" id="trafficChSelectParam" >
+     	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="STARTDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="ENDDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="trafficChSelect" parameterMap="trafficChSelectParam" resultClass="OutputResult">
+         { call TRAFFIC_CH_SELECT(?,?,?,?,?) }
+     </procedure>
+     
+    <parameterMap class="Map" id="callHistorySelectParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="STARTDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="ENDDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="callHistorySelect" parameterMap="callHistorySelectParam" resultClass="OutputResult">
+         { call CALL_HISTORY_SELECT(?,?,?,?,?) }
+     </procedure>
+     
+    <parameterMap class="Map" id="svcInfoSelectParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="STARTDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="ENDDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="svcInfoSelect" parameterMap="svcInfoSelectParam" resultClass="OutputResult">
+         { call SVC_INFO_SELECT(?,?,?,?,?) }
+     </procedure>
+     
+    <parameterMap class="Map" id="selectParamTableParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectParamTable" parameterMap="selectParamTableParam" resultClass="OutputResult">
+         { call PARAM_TABLE_SELECT(?,?,?) }
+     </procedure>     
+     
+
+    <parameterMap class="Map" id="parameterSelectParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="TABLE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="parameterSelect" parameterMap="parameterSelectParam" resultClass="OutputResult">
+         { call PARAMETER_SELECT(?,?,?,?) }
+     </procedure>
+     
+    <parameterMap class="Map" id="parameterUpdateParam" >
+        <parameter property="TABLE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="INDEX" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="DATA" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="DESCRIPTION" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="parameterUpdate" parameterMap="parameterUpdateParam" >
+         { call PARAMETER_UPDATE(?,?,?,?,?,?) }
+     </procedure>     
+          
+    <parameterMap class="Map" id="selectServiceSttsParam" >
+    	<parameter property="USERID" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="STARTDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="ENDDATE" javaType="String" jdbcType="VARCHAR" mode="IN"/>
+        <parameter property="RET" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+        <parameter property="RET_MSG" javaType="String" jdbcType="VARCHAR" mode="OUT"/>
+    </parameterMap>
+     <procedure id="selectServiceStts" parameterMap="selectServiceSttsParam" resultClass="OutputResult">
+         { call SERVICE_STTS_SELECT(?,?,?,?,?) }
+     </procedure>           
+     
+          
+                   
+</sqlMap>

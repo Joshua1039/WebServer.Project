@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//src/com/modernwave/web/server/controller/AcrController.java=UTF-8
+encoding//src/com/modernwave/web/server/controller/DarsController.java=UTF-8
+encoding//src/com/modernwave/web/server/controller/MctmController.java=UTF-8
+encoding//src/com/modernwave/web/server/controller/MwtsController.java=UTF-8
+encoding//src/com/modernwave/web/server/framework/core/BaseController.java=UTF-8
+encoding//src/com/modernwave/web/server/service/impl/AcrServiceImpl.java=UTF-8
+encoding//src/com/modernwave/web/server/service/impl/DarsServiceImpl.java=UTF-8
+encoding//src/com/modernwave/web/server/service/impl/MctmServiceImpl.java=UTF-8
+encoding//src/com/modernwave/web/server/service/impl/MwtsServiceImpl.java=UTF-8

@@ -1,0 +1,26 @@
+.sidebar_content{
+	position: absolute; 
+	height: 100%; 
+	left: 50px; 
+	width: calc(100% - 50px);	
+}
+.sidebar_bg{
+	position: absolute; 
+	height: 100%; 
+	width: 50px; 
+	background-color: #29323b; 
+	border-top-left-radius: 2.5em; 
+	border-bottom-left-radius: 2.5em;	
+}
+.sidebar_btn{
+    position: absolute;
+    top: 50%;
+    height: 30px;
+    width: 30px;
+    margin: 0 10px 0 10px;
+    background-image: url('../../../../images/refresh_user.png');
+    background-size: contain;
+    background-repeat:  no-repeat;
+    background-position:  center;
+    cursor:pointer;
+}
